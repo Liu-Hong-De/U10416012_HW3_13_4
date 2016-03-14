@@ -1,7 +1,7 @@
 //U10416012 劉宏德
 
 public class PrintCalendar {
-
+		
 	//load the calendar class which defined in api
 	static Calendar calendar = new calendar();
 	
@@ -10,6 +10,24 @@ public class PrintCalendar {
 		//define month and year wich calendar
 		int month = calendar.get(Calendar.MONTH) + 1;
 		int year = calendar.get(Calendar.YEAR);
+		
+		
+		//set the user first input is month, the second is year
+		if (args.length == 2) {
+			
+			year = Integer.parseInt(args[1]);
+			month = Integer.parseInt(args[0]);
+
+			calendar.set(Calendar.YEAR, year);
+			calendar.set(Calendar.MONTH, month - 1);
+		}
+		
+		//if the user only input month, print the year now 
+		else if (args.length == 1) {
+      
+			month = Integer.parseInt(args[0]);
+			calendar.set(Calendar.MONTH, month-1);
+		}
 		
 		//print the calendar for a month in a year
 		printMonth(year, month);
