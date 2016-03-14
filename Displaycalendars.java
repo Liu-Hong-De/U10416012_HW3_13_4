@@ -1,16 +1,17 @@
-//U10416012 劉宏德
+//U10416018 劉宏德
 
-public class PrintCalendar {
-		
+import java.util.*;
+
+public class PrintCalendar{
+	
 	//load the calendar class which defined in api
-	static Calendar calendar = new calendar();
+	static Calendar calendar = new Calendar();
 	
 	public static void main(String[] args) {
 		
 		//define month and year wich calendar
 		int month = calendar.get(Calendar.MONTH) + 1;
 		int year = calendar.get(Calendar.YEAR);
-		
 		
 		//set the user first input is month, the second is year
 		if (args.length == 2) {
@@ -26,13 +27,16 @@ public class PrintCalendar {
 		else if (args.length == 1) {
       
 			month = Integer.parseInt(args[0]);
-			calendar.set(Calendar.MONTH, month-1);
+			calendar.set(Calendar.MONTH, month - 1);
 		}
 		
+		//set the first day in the month
+		calendar.set(Calendar.DATE, 1);
+		
 		//print the calendar for a month in a year
-		printMonth(year, month);
-	}
-	
+		printMonth(month, year);
+		}
+
 	//Print the calendar for a month in a year
 	public static void printMonth(int year, int month){
 		
